@@ -1,39 +1,32 @@
 #include <stdio.h>
-#include <locale.h>
 
 int main() {
-    setlocale(LC_ALL, "Russian");
     int n;
-    printf("Введите количество элементов массива: ");
-    scanf_s("%d", &n);
     int arr[100];
-    printf("Введите %d целых чисел:\n", n);
+    printf("Сколько чисел будет в массиве? ");
+    scanf("%d", &n);
+    printf("Введите числа через пробел: ");
     for (int i = 0; i < n; i++) {
-        scanf_s("%d", &arr[i]);
+        scanf("%d", &arr[i]);
     }
-    int first_pos = -1;
-    int last_pos = -1;  
-    int sum = 0;      
+    int first = -1; 
+    int last = -1; 
     for (int i = 0; i < n; i++) {
         if (arr[i] > 0) {
-            first_pos = i;
-            break;
+            first = i; 
+            break;   
         }
     }
     for (int i = n - 1; i >= 0; i--) {
         if (arr[i] > 0) {
-            last_pos = i;
-            break; 
+            last = i;
+            break;
         }
     }
-    if (first_pos != -1 && last_pos != -1 && last_pos > first_pos + 1) {
-        for (int i = first_pos + 1; i < last_pos; i++) {
-            sum = sum + arr[i];
-        }
-        printf("\nСумма элементов между первым и последним положительными: %d\n", sum);
+    int sum = 0;
+    for (int i = first + 1; i < last; i++) {
+        sum = sum + arr[i]; 
     }
-    else {
-        printf("\nМежду первым и последним положительными элементами нет других чисел (или их вообще нет). Сумма = 0\n");
-    }
+    printf("Сумма между ними: %d\n", sum);
     return 0;
 }
