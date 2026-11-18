@@ -1,84 +1,32 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-int main()
+#include <wchar.h>
+#include <locale.h>
+
+int main() 
 {
-    int a[100][100];
-    int b[100][100];
-    int n, m, i, j, k, choice, again;
-    srand(time(NULL));
-    do
-    {
-        printf("Введите количество строк: ");
-        scanf_s("%d", &n);
-        printf("Введите количество столбцов: ");
-        scanf_s("%d", &m);
-        printf("\nВыберите способ заполнения массива:\n");
-        printf("1 - Ввод с консоли\n");
-        printf("2 - Ввод случайных чисел\n");
-        scanf_s("%d", &choice);
-        if (choice == 1)
-        {
-            printf("\nВведите элементы массива:\n");
-            for (i = 0; i < n; i++)
-            {
-                for (j = 0; j < m; j++)
-                {
-                    scanf_s("%d", &a[i][j]);
-                }
-            }
-        }
-        else
-        {
-            for (i = 0; i < n; i++)
-            {
-                for (j = 0; j < m; j++)
-                {
-                    a[i][j] = rand() % 100;
-                }
-            }
-        }
-        printf("\nИсходный массив:\n");
-        for (i = 0; i < n; i++)
-        {
-            for (j = 0; j < m; j++)
-            {
-                printf("%4d", a[i][j]);
-            }
-            printf("\n");
-        }
-        k = 0;
-        for (i = 0; i < n; i += 2)
-        {
-            for (j = 0; j < m; j++)
-            {
-                b[k][j] = a[i][j];
-            }
-            k++;
-        }
-        for (i = k; i < n; i++)
-        {
-            for (j = 0; j < m; j++)
-            {
-                b[i][j] = 0;
-            }
-        }
-        printf("\nПреобразованный массив:\n");
-        for (i = 0; i < n; i++)
-        {
-            for (j = 0; j < m; j++)
-            {
-                printf("%4d", b[i][j]);
-            }
-            printf("\n");
-        }
-        printf("\nРезультат:\n");
-        printf("\nХотите продолжить работу?\n");
-        printf("1 - Да\n");
-        printf("0 - Нет\n");
-        scanf_s("%d", &again);
-    }
-    while (again == 1);
-    printf("\nПрограмма завершена.\n");
+    setlocale(LC_ALL, "Russian");
+    char c;
+    short int shi;
+    unsigned short int us;
+    int i;
+    unsigned char uc;
+    wchar_t wt;
+    long long int lli;
+    size_t st;
+    float f;
+    double d;
+    signed int sint;
+    printf("Р Р°Р·РјРµСЂС‹ С‚РёРїРѕРІ РґР°РЅРЅС‹С… (РІ Р±Р°Р№С‚Р°С…):\n\n");
+    printf("1) char: %d\n", (int)((char*)(&c + 1) - (char*)(&c)));
+    printf("2) short int: %d\n", (int)((char*)(&shi + 1) - (char*)(&shi)));
+    printf("3) unsigned short int: %d\n", (int)((char*)(&us + 1) - (char*)(&us)));
+    printf("4) int: %d\n", (int)((char*)(&i + 1) - (char*)(&i)));
+    printf("5) unsigned char: %d\n", (int)((char*)(&uc + 1) - (char*)(&uc)));
+    printf("6) wchar_t: %d\n", (int)((char*)(&wt + 1) - (char*)(&wt)));
+    printf("7) long long int: %d\n", (int)((char*)(&lli + 1) - (char*)(&lli)));
+    printf("8) size_t: %d\n", (int)((char*)(&st + 1) - (char*)(&st)));
+    printf("9) float: %d\n", (int)((char*)(&f + 1) - (char*)(&f)));
+    printf("10) double: %d\n", (int)((char*)(&d + 1) - (char*)(&d)));
+    printf("11) signed int: %d\n", (int)((char*)(&sint + 1) - (char*)(&sint)));
     return 0;
 }
