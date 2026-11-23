@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <locale.h>
-
 int* reverse(int* start, int* end)
 {
     static int b[100];
@@ -17,15 +16,15 @@ int main()
     setlocale(LC_ALL, "Russian");
     int a[100], n, i;
     int* b;
-    printf("Введите количество элементов: ");
+    printf("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ: ");
     scanf_s("%d", &n);
-    printf("Введите элементы массива:\n");
+    printf("Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°:\n");
     for (i = 0; i < n; i++)
     {
         scanf_s("%d", &a[i]);
     }
     b = reverse(a, a + n - 1);
-    printf("Результат:\n");
+    printf("Р РµР·СѓР»СЊС‚Р°С‚:\n");
     for (i = 0; i < n; i++)
     {
         printf("%d ", b[i]);
